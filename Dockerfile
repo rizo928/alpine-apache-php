@@ -5,9 +5,9 @@
 #
 #
 
-FROM alpine:latest
+FROM gliderlabs/alpine
 
-MAINTAINER Jerald Watts <cysix928@gmail.com>
+MAINTAINER Jerald Watts <proxy@silverforge.net>
 
 # Set environment variables.
 ENV \
