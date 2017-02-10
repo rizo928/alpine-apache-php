@@ -51,6 +51,8 @@ RUN mkdir /app \
     && sed -i 's#AllowOverride none#AllowOverride All#' /etc/apache2/httpd.conf \
     && sed -i 's#/var/www/localhost/htdocs#/#' /etc/apache2/httpd.conf \
     && sed -i 's#-n##' /usr/bin/pecl \
+    && cd /app && \
+    && composer require "mongodb/mongodb=^1.0.0" \
     && echo "Success"
 
 ADD scripts/run.sh /scripts/run.sh
