@@ -6,7 +6,7 @@
 #
 
 # FROM gliderlabs/alpine
-FROM alpine/edge
+FROM alpine:edge
 
 MAINTAINER Jerald Watts <proxy@silverforge.net>
 
@@ -25,6 +25,7 @@ RUN \
     git \
     tar \
     wget \
+    php7 \
     php7-dev \
     php7-apache2 \
     php7-iconv \
