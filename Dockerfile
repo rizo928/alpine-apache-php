@@ -42,7 +42,7 @@ RUN apk add php7-mongodb --update-cache --repository http://dl-3.alpinelinux.org
     
 RUN ln -s /usr/bin/php7 /usr/local/bin/php
 
-# RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN mkdir /app \
     && chown -R apache:apache /app \
