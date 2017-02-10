@@ -25,16 +25,16 @@ RUN \
     git \
     tar \
     wget \
-#    php7 \
-#    php7-dev \
+    php7 \
+    php7-dev \
     php7-apache2 \
-#    php7-iconv \
-#    php7-json \
-#    php7-phar \
-#    php7-openssl \
-#    php7-xml \
-#    php7-xsl \
-#    php7-pear \
+    php7-iconv \
+    php7-json \
+    php7-phar \
+    php7-openssl \
+    php7-xml \
+    php7-xsl \
+    php7-pear \
     && rm -rf /var/cache/apk/*
     
 # RUN apk add php7-mongodb --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
