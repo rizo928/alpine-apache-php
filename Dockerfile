@@ -50,10 +50,15 @@ RUN mkdir /app \
     && sed -i 's#^DocumentRoot ".*#DocumentRoot "/app"#g' /etc/apache2/httpd.conf \
     && sed -i 's#AllowOverride none#AllowOverride All#' /etc/apache2/httpd.conf \
     && sed -i 's#/var/www/localhost/htdocs#/#' /etc/apache2/httpd.conf \
-    && sed -i 's#-n##' /usr/bin/pecl \
-    && cd /app && \
+    && sed -i 's#-n##' /usr/bin/pecl
+
+#################
+# Remove this to the run.sh scrips at some point to avoid coupling this base image
+RUN cd /app && \
     && composer require "mongodb/mongodb=^1.0.0" \
+    && composer require twilio/sdk \
     && echo "Success"
+#################
 
 ADD scripts/run.sh /scripts/run.sh
 RUN mkdir /scripts/pre-exec.d \
