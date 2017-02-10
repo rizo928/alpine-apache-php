@@ -25,9 +25,7 @@ RUN \
     git \
     tar \
     wget \
-    m4 \
-    php7 \
-    php7-dev
+    php7-dev \
     php7-apache2 \
     php7-iconv \
     php7-json \
@@ -36,7 +34,10 @@ RUN \
     php7-xml \
     php7-xsl \
     php7-pear \
-    && rm -rf /var/cache/apk/*    
+    && rm -rf /var/cache/apk/*
+    
+RUN apk add php7-mongodb --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
+    && rm -rf /var/cache/apk/*
     
 RUN ln -s /usr/bin/php7 /usr/local/bin/php \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
