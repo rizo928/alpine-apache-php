@@ -40,18 +40,20 @@ RUN \
 RUN apk add php7-mongodb --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
     && rm -rf /var/cache/apk/*
     
-RUN ln -s /usr/bin/php7 /usr/local/bin/php \
-    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-    && mkdir /app 
+RUN ln -s /usr/bin/php7 /usr/local/bin/php
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+RUN mkdir /app 
     && chown -R apache:apache /app \
     && sed -i 's#^DocumentRoot ".*#DocumentRoot "/app"#g' /etc/apache2/httpd.conf \
     && sed -i 's#AllowOverride none#AllowOverride All#' /etc/apache2/httpd.conf \
     && echo "Success"
 
 ADD scripts/run.sh /scripts/run.sh
-RUN mkdir /scripts/pre-exec.d && \
-mkdir /scripts/pre-init.d && \
-chmod -R 755 /scripts
+RUN mkdir /scripts/pre-exec.d \
+    && mkdir /scripts/pre-init.d \
+    && chmod -R 755 /scripts
 
 EXPOSE 80
 
