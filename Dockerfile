@@ -48,6 +48,7 @@ RUN mkdir /app \
     && chown -R apache:apache /app \
     && sed -i 's#^DocumentRoot ".*#DocumentRoot "/app"#g' /etc/apache2/httpd.conf \
     && sed -i 's#AllowOverride none#AllowOverride All#' /etc/apache2/httpd.conf \
+    && sed -i 's#/var/www/localhost/htdocs#/#' /etc/apache2/httpd.conf \
     && echo "Success"
 
 ADD scripts/run.sh /scripts/run.sh
