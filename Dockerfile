@@ -57,7 +57,7 @@ RUN mkdir /app \
 # Remove this to the run.sh scrips at some point to avoid coupling this base image
 RUN cd /app && \
     && composer require "mongodb/mongodb=^1.0.0" \
-    && composer require twilio/sdk \
+    && composer require twilio/sdk:4.11.0 \
     && echo "Success"
 #################
 
