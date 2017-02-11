@@ -24,8 +24,12 @@ RUN \
     vim \
     git \
     tar \
-    wget \
-    php7 \
+    wget
+    
+#############
+# TBD Use environment variable to specify which php modules to load beyond the bare basics
+#
+RUN php7 \
     php7-dev \
     php7-apache2 \
     php7-iconv \
@@ -52,14 +56,6 @@ RUN mkdir /app \
     && sed -i 's#AllowOverride none#AllowOverride All#' /etc/apache2/httpd.conf \
     && sed -i 's#/var/www/localhost/htdocs#/#' /etc/apache2/httpd.conf \
     && sed -i 's#-n##' /usr/bin/pecl
-
-#################
-# Remove this to the run.sh scrips at some point to avoid coupling this base image
-RUN cd /app && \
-    && composer require "mongodb/mongodb=^1.0.0" \
-    && composer require twilio/sdk:4.11.0 \
-    && echo "Success"
-#################
 
 ADD scripts/run.sh /scripts/run.sh
 RUN mkdir /scripts/pre-exec.d \
