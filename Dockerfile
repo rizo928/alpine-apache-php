@@ -35,6 +35,7 @@ RUN \
     php7-xml \
     php7-xsl \
     php7-dom \
+    php7-curl \
     php7-pear \
     && rm -rf /var/cache/apk/*
     
