@@ -60,7 +60,9 @@ RUN mkdir /app \
     && sed -i 's#/var/www/localhost/htdocs#/#' /etc/apache2/httpd.conf \
     && sed -i 's#-n##' /usr/bin/pecl
 
-ADD scripts/run.sh /scripts/run.sh
+RUN mkdir /scripts \
+    && chmod -R 755 /scripts
+COPY scripts/run.sh /scripts/
 RUN mkdir /scripts/pre-exec.d \
     && mkdir /scripts/pre-init.d \
     && chmod -R 755 /scripts
