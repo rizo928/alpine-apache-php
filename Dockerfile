@@ -60,16 +60,11 @@ RUN mkdir /app \
     && sed -i 's#/var/www/localhost/htdocs#/#' /etc/apache2/httpd.conf \
     && sed -i 's#-n##' /usr/bin/pecl
 
-RUN mkdir /scripts \
-    && chmod -R 755 /scripts
-COPY *.sh /scripts/
-RUN mkdir /scripts/pre-exec.d \
-    && mkdir /scripts/pre-init.d \
-    && chmod -R 755 /scripts
+COPY run.sh /run.sh
 
 EXPOSE 80
 
 # VOLUME /app
 WORKDIR /app
 
-ENTRYPOINT ["/scripts/run.sh"]
+ENTRYPOINT ["/run.sh"]
