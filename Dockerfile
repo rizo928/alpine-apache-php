@@ -53,6 +53,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN mkdir /app \
     && mkdir /run/apache2 \
+    && chown -R apache:apache /run/apache2 \
     && chown -R apache:apache /app \
     && sed -i 's#^DocumentRoot ".*#DocumentRoot "/app"#g' /etc/apache2/httpd.conf \
     && sed -i 's#AllowOverride none#AllowOverride All#' /etc/apache2/httpd.conf \
