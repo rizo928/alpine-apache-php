@@ -72,4 +72,5 @@ EXPOSE 80
 # VOLUME /app
 WORKDIR /app
 
-ENTRYPOINT ["/scripts/run.sh"]
+# ENTRYPOINT ["/scripts/run.sh"]
+ENTRYPOINT ["/bin/bash"]
