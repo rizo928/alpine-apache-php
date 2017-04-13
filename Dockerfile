@@ -62,7 +62,7 @@ RUN mkdir /app \
 
 RUN mkdir /scripts \
     && chmod -R 755 /scripts
-COPY run.sh /scripts/run.sh
+COPY *.sh /scripts/
 RUN mkdir /scripts/pre-exec.d \
     && mkdir /scripts/pre-init.d \
     && chmod -R 755 /scripts
