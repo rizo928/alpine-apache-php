@@ -61,6 +61,8 @@ RUN mkdir /app \
     && sed -i 's#-n##' /usr/bin/pecl
 
 COPY run.sh /run.sh
+RUN chown root:root /run.sh \
+&& chmod 755 /run.sh
 
 EXPOSE 80
 
