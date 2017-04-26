@@ -69,7 +69,9 @@ RUN mkdir /app \
 RUN sed -i 's#-n##' /usr/bin/pecl
 
 RUN sed -i 's/;zend.multibyte = Off/zend.multibyte = On/' /etc/php7/php.ini
+RUN sed -i 's/;extension=php_mbstring.dll/extension=php_mbstring.dll/' /etc/php7/php.ini
 RUN sed -i 's/;include_path = \".:\/php\/includes\"/include_path = \".:\/usr\/share\/php7\"/' /etc/php7/php.ini
+
 RUN sed -i 's/;date.timezone =/date.timezone = America\/New_York/' /etc/php7/php.ini
 
 COPY run.sh /run.sh
