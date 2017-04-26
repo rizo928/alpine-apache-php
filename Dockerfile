@@ -24,6 +24,7 @@ RUN \
     vim \
     git \
     tar \
+    ssmtp \
     wget
     
 #############
@@ -49,6 +50,8 @@ RUN apk add --update --no-cache \
     && rm -rf /var/cache/apk/*
     
 RUN ln -s /usr/bin/php7 /usr/local/bin/php
+RUN mv /usr/sbin/sendmail /usr/sbin/sendmail.! \
+    && ln -s /usr/sbin/ssmtp /usr/sbin/sendmail
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
