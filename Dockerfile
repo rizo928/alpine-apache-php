@@ -57,7 +57,7 @@ RUN mkdir /app \
     && chown -R apache:apache /run/apache2 \
     && chown -R apache:apache /app \
     && sed -i 's#^DocumentRoot ".*#DocumentRoot "/app"#g' /etc/apache2/httpd.conf \
-    && sed -i 's#AllowOverride none#AllowOverride All#' /etc/apache2/httpd.conf \
+    && sed -i 's/AllowOverride None/AllowOverride All/' /etc/apache2/httpd.conf \
     && sed -i 's/#LoadModule rewrite_module/LoadModule rewrite_module/' /etc/apache2/httpd.conf \
     && sed -i 's#/var/www/localhost/htdocs#/#' /etc/apache2/httpd.conf
     
