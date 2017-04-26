@@ -48,9 +48,6 @@ RUN apk add --update --no-cache \
     php7-session \
     && rm -rf /var/cache/apk/*
     
-RUN apk add php7-mongodb --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
-    && rm -rf /var/cache/apk/*
-    
 RUN ln -s /usr/bin/php7 /usr/local/bin/php
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
