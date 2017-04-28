@@ -73,13 +73,13 @@ RUN sed -i 's/;include_path = \".:\/php\/includes\"/include_path = \".:\/usr\/sh
 
 RUN sed -i 's/;date.timezone =/date.timezone = America\/New_York/' /etc/php7/php.ini
 
-# COPY run.sh /run.sh
-# RUN chown root:root /scripts/run.sh \
-# && chmod 755 /run.sh
+COPY run.sh /run.sh
+RUN chown root:root /scripts/run.sh \
+&& chmod 755 /run.sh
 
 EXPOSE 80
 
 # VOLUME /app
 WORKDIR /app
 
-ENTRYPOINT ["/scripts/run.sh"]
+ENTRYPOINT ["run.sh"]
