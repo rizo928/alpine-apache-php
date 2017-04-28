@@ -2,13 +2,17 @@
 
 # execute any pre-exec scripts, useful for images
 # based on this image
-for i in /scripts/*sh
-do
-    if [ -e "${i}" ]; then
-        echo "[i] user script - processing $i"
-        . "${i}"
-    fi
-done
+if [ -d "/scripts" ]; then
+	echo "Looking for user scripts to execute..."
+	for i in /scripts/*sh
+	do
+    	if [ -e "${i}" ]; then
+        	echo "[i] user script - processing $i"
+        	. "${i}"
+    	fi
+	done
+fi
+
 
 # set apache as owner/group
 if [ "$FIX_OWNERSHIP" != "" ]; then
