@@ -3,10 +3,10 @@
 #
 # An image based on Alpine Linux with Apache2, PHP5, Composer, various PHP extensions and useful utilities.
 #
+# Concepts originally taken from gliderlabs/alpine
 #
 
-# FROM gliderlabs/alpine
-FROM alpine:edge
+FROM alpine:latest
 
 MAINTAINER Jerald Watts <proxy@silverforge.net>
 
