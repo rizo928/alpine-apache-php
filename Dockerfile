@@ -82,4 +82,6 @@ EXPOSE 80
 # VOLUME /app
 WORKDIR /app
 
+# This will run any scripts found in /scripts/*.sh
+# then start Apache
 ENTRYPOINT ["/run.sh"]
