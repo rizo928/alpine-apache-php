@@ -1,6 +1,6 @@
 # alpine-apache-php
 
-<h1>This image is currently under development and changing rapidly.</h1>
+<h1>Currently under development and changing rapidly.</h1>
 
 What does generally work is the combination of alpine-apache-php7 (which didn't initially play nice).
 
@@ -18,12 +18,11 @@ b) Location for custom pre-init and pre-exec scripts.
    Container path: /scripts
    Local path:<myscripts-dir>
    
-   Place your pre-init scripts in <myscripts-dir>/pre-init.d
-   Place your pre-exec scripts in <myscripts-dir>/pre-exec.d
+   Place any custom scripts you would like to run in this directory.  They will be executed prior to starting Apache.
    
    Script files names must end in .sh
    
-   The main executable (/run.sh) will search in each of these directories for any file ending in .sh
+   The main executable (/run.sh) will search in /scripts for any file ending in .sh
    It will then attempt to execute the scripts it finds when the container is brough online.  This is useful
    for instance specific stuff like configuring httpd.conf to contain the correct ServerName etc.
 
