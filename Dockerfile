@@ -47,7 +47,10 @@ RUN apk add --update --no-cache \
     php7-pdo \
     php7-ctype \
     php7-session \
-    php7-mongodb \
+    && rm -rf /var/cache/apk/*
+
+RUN sed -e "\$a@testing http:\/\/nl.alpinelinux.org\/alpine\/edge\/testing" /etc/apk/repositories
+RUN apk add --update --no-cache \
     && rm -rf /var/cache/apk/*
     
 RUN ln -s /usr/bin/php7 /usr/local/bin/php
