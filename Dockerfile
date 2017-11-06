@@ -6,7 +6,7 @@
 # Concepts originally taken from gliderlabs/alpine
 #
 
-FROM alpine:latest
+FROM alpine:edge
 
 MAINTAINER Jerald Watts <proxy@silverforge.net>
 
