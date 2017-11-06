@@ -47,6 +47,7 @@ RUN apk add --update --no-cache \
     php7-pdo \
     php7-ctype \
     php7-session \
+    php7-mongodb \
     && rm -rf /var/cache/apk/*
     
 RUN ln -s /usr/bin/php7 /usr/local/bin/php
