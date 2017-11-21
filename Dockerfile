@@ -49,7 +49,7 @@ RUN apk add --update --no-cache \
     php7-session \
     && rm -rf /var/cache/apk/*
 
-RUN sed -i "\$a@testing http:\/\/nl.alpinelinux.org\/alpine\/edge\/testing" /etc/apk/repositories
+RUN echo '@testing http://nl.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories
 RUN apk add --update --no-cache php7-mongodb@testing\
     && rm -rf /var/cache/apk/*
     
