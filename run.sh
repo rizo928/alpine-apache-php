@@ -19,8 +19,14 @@ if [ "$FIX_OWNERSHIP" != "" ]; then
 	chown -R apache:apache /app
 fi
 
+if [ -f '/var/log/apache2/error.log' ]; then
+        echo "Tailing existing Apache error.log"
+else
+        touch /var/log/apache2/error.log
+fi
+
 # display logs
-tail -F /var/log/apache2/*log &
+tail -F /var/log/apache2/error.log &
 
 echo "[i] Starting daemon..."
 # run apache httpd daemon
