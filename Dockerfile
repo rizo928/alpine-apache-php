@@ -24,6 +24,7 @@ RUN \
     vim \
     git \
     tar \
+    openssh-client\
     ssmtp \
     wget
     
